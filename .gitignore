@@ -1,0 +1,68 @@
+# ========================
+# Backend (Go)
+# ========================
+# Compiled binaries
+backend/bin/
+backend/build/
+backend/*.exe
+backend/*.dll
+backend/*.so
+backend/*.dylib
+backend/*.test
+
+# Dependency directories
+backend/vendor/
+
+# Logs
+backend/*.log
+
+# IDE / editor files
+backend/.vscode/
+backend/.idea/
+backend/*.swp
+backend/*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# ========================
+# Frontend (Angular / Node)
+# ========================
+# Node modules
+frontend/node_modules/
+
+# Angular build output
+frontend/dist/
+frontend/out-tsc/
+frontend/tmp/
+frontend/coverage/
+frontend/.angular/cache/
+
+# Logs
+frontend/npm-debug.log*
+frontend/yarn-error.log*
+frontend/testem.log
+frontend/libpeerconnection.log
+
+# IDE / editor files
+frontend/.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+frontend/.idea/
+frontend/.project
+frontend/.classpath
+frontend/.c9/
+frontend/*.launch
+frontend/.settings/
+frontend/*.sublime-workspace
+frontend/.history/*
+
+# Sass / CSS cache
+frontend/.sass-cache/
+
+# Miscellaneous
+frontend/__screenshots__/
+frontend/typings/
