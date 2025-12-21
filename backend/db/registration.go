@@ -3,9 +3,10 @@ package db
 import (
 	"database/sql"
 	"fmt"
-	_ "github.com/lib/pq"
 	"os"
+
 	"github.com/joho/godotenv"
+	_ "github.com/lib/pq"
 )
 
 const (
@@ -18,7 +19,7 @@ func InitDB() error {
 	user := os.Getenv("POSTGRES_USER")
 	password := os.Getenv("POSTGRES_PASSWORD")
 	dbname := os.Getenv("POSTGRES_DB")
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+ "password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
+	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+"password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
 	db, err := sql.Open("postgres", psqlInfo)
 	if err != nil {
 		panic(err)
@@ -29,7 +30,7 @@ func InitDB() error {
 	if err != nil {
 		panic(err)
 	}
-	createTableSQL:= `CREATE TABLE IF NOT EXISTS registrations (
+	createTableSQL := `CREATE TABLE IF NOT EXISTS registrations (
 		id SERIAL PRIMARY KEY,
 		username VARCHAR(50) UNIQUE NOT NULL,
 		password_hash VARCHAR(255) NOT NULL,
@@ -39,10 +40,9 @@ func InitDB() error {
 	if err != nil {
 		panic(err)
 	}
+	return nil
 }
 
-func registration(username string, passwordHash string){
-	
-}
-	
+func registration(username string, passwordHash string) {
 
+}
