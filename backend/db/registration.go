@@ -14,17 +14,18 @@ const (
 	port = 5432
 )
 
+var DB *sql.DB //upper case to make it public/global
+
 func InitDB() error {
-	godotenv.Load("../.env")
+	godotenv.Load(".env") //relative to where go is run
 	user := os.Getenv("POSTGRES_USER")
 	password := os.Getenv("POSTGRES_PASSWORD")
 	dbname := os.Getenv("POSTGRES_DB")
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+"password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
+	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
 	db, err := sql.Open("postgres", psqlInfo)
 	if err != nil {
 		panic(err)
 	}
-	defer db.Close()
 
 	err = db.Ping()
 	if err != nil {
@@ -40,9 +41,29 @@ func InitDB() error {
 	if err != nil {
 		panic(err)
 	}
+	DB = db
 	return nil
 }
 
-func registration(username string, passwordHash string) {
+func Registration(username string, passwordHash string) error {
+	query := `INSERT INTO registrations (username, password_hash) VALUES ($1, $2)`
+	_, err := DB.Exec(query, username, passwordHash)
+	if err != nil {
+		return err
+	}
+	return nil
+}
 
+func CheckUserExists(username string) (bool, error) {
+	query := `SELECT COUNT(*) FROM registrations WHERE username=$1`
+	var count int
+	if err := DB.QueryRow(query, username).Scan(&count); err != nil {
+		fmt.Println("Error checking user existence:", err)
+		return false, err
+	}
+	return count > 0, nil
+}
+
+func CloseDB() {
+	DB.Close()
 }
