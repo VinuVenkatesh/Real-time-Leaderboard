@@ -4,6 +4,7 @@ import { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { UserAuth } from '../services/userauth';
 
 @Component({
   selector: 'app-register-modal',
@@ -20,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class RegisterModal {
   private dialogRef = inject(MatDialogRef<RegisterModal>);
+  private userAuthService = inject(UserAuth);
 
   // Reactive form
   registerForm = new FormGroup({
@@ -32,8 +34,15 @@ export class RegisterModal {
       this.registerForm.markAllAsTouched(); // show errors
       return;
     }
-
+    this.userAuthService.register(
+      this.registerForm.value.username!,
+      this.registerForm.value.password!
+    ).subscribe({
+      next: (response) => {
+        console.log('Registration successful', response);
+        this.dialogRef.close(this.registerForm.value); // close dialog with form data
+      }
     // close dialog with form data
-    this.dialogRef.close(this.registerForm.value);
+  });
   }
 }

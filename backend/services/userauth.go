@@ -25,3 +25,14 @@ func RegisterUser(username string, password string) error {
 	}
 	return nil
 }
+
+func AuthenticateUser(username string, password string) (bool, error) {
+	storedHash, err := db.GetPasswordHash(username)
+	if err != nil {
+		return false, errors.New("User does not exist")
+	}
+	if err = bcrypt.CompareHashAndPassword([]byte(storedHash), []byte(password)); err != nil {
+		return false, errors.New("Incorrect password")
+	}
+	return true, nil
+}

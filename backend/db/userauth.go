@@ -67,3 +67,12 @@ func CheckUserExists(username string) (bool, error) {
 func CloseDB() {
 	DB.Close()
 }
+
+func GetPasswordHash(username string) (string, error) {
+	query := `SELECT password_hash FROM registrations WHERE username=$1`
+	var passwordHash string
+	if err := DB.QueryRow(query, username).Scan(&passwordHash); err != nil {
+		return "", err
+	}
+	return passwordHash, nil
+}

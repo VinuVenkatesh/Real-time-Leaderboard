@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { RegisterModal } from '../register-modal/register-modal';
+import { LoginModal } from '../login-modal/login-modal';
 
 @Component({
   selector: 'app-landing-page',
@@ -14,7 +15,12 @@ export class LandingPage {
   private dialog = inject(MatDialog);
 
   login() {
-    console.log('Login button clicked');
+    this.dialog.open(LoginModal,{
+      width: '400px'
+    }).afterClosed().subscribe(result => {
+      if (!result) return;
+      console.log('Logged in with', result);
+    });
   }
 
   register() {
