@@ -3,7 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { RegisterModal } from '../register-modal/register-modal';
 import { LoginModal } from '../login-modal/login-modal';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-landing-page',
   standalone: true,
@@ -13,13 +13,15 @@ import { LoginModal } from '../login-modal/login-modal';
 })
 export class LandingPage {
   private dialog = inject(MatDialog);
+  private router = inject(Router);
 
   login() {
     this.dialog.open(LoginModal,{
       width: '400px'
     }).afterClosed().subscribe(result => {
       if (!result) return;
-      console.log('Logged in with', result);
+      console.log('Logged in successfully');
+      this.router.navigate(['/main']);
     });
   }
 

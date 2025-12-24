@@ -26,13 +26,17 @@ func RegisterUser(username string, password string) error {
 	return nil
 }
 
-func AuthenticateUser(username string, password string) (bool, error) {
+func AuthenticateUser(username string, password string) (string, error) {
 	storedHash, err := db.GetPasswordHash(username)
 	if err != nil {
-		return false, errors.New("User does not exist")
+		return "", errors.New("User does not exist")
 	}
 	if err = bcrypt.CompareHashAndPassword([]byte(storedHash), []byte(password)); err != nil {
-		return false, errors.New("Incorrect password")
+		return "", errors.New("Incorrect password")
 	}
-	return true, nil
+	token, err := GenerateJWT(username)
+	if err != nil {
+		return "", err
+	}
+	return token, nil
 }

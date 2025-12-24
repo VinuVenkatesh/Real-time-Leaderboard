@@ -37,8 +37,7 @@ export class LoginModal {
       this.loginForm.value.password!
     ).subscribe({
       next: (response) => {
-        console.log('Login successful', response);
-        this.dialogRef.close(this.loginForm.value); // close dialog with form data
+        this.dialogRef.close(true); // close dialog with form data
       }
     });
   }
