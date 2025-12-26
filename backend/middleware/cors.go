@@ -4,16 +4,13 @@ import (
 	"net/http"
 	"os"
 	"strings"
-
-	"github.com/joho/godotenv"
 )
 
 func CORS(next http.Handler) http.Handler {
-	godotenv.Load(".env")
 	allowedOrigins := strings.Split(os.Getenv("CORS_ALLOWED_ORIGINS"), ",")
-	allowed := false
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		requestOrigin := r.Header.Get("Origin")
+		allowed := false
 		for _, origin := range allowedOrigins {
 			if origin == requestOrigin {
 				allowed = true

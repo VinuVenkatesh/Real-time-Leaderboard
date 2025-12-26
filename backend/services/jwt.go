@@ -5,11 +5,9 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/joho/godotenv"
 )
 
 func GenerateJWT(username string) (string, error) {
-	godotenv.Load()
 	claims := jwt.MapClaims{
 		"username": username,
 		"exp":      time.Now().Add(time.Hour * 24).Unix(),
@@ -19,6 +17,12 @@ func GenerateJWT(username string) (string, error) {
 	return token.SignedString([]byte(os.Getenv("JWT_SECRET_KEY")))
 }
 
-// func ValidateJWT(tokenString string) (*jwt.Token, error) {
+func ValidateJWT(tokenString string) (*jwt.Token, error) {
+	return jwt.Parse(tokenString, func(token *jwt.Token) (any, error) {
+		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
+			return nil, jwt.ErrSignatureInvalid
+		}
+		return []byte(os.Getenv("JWT_SECRET_KEY")), nil
+	})
 
-// }
+}

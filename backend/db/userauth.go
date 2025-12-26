@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
 
@@ -17,7 +16,6 @@ const (
 var DB *sql.DB //upper case to make it public/global
 
 func InitDB() error {
-	godotenv.Load(".env") //relative to where go is run
 	user := os.Getenv("POSTGRES_USER")
 	password := os.Getenv("POSTGRES_PASSWORD")
 	dbname := os.Getenv("POSTGRES_DB")
