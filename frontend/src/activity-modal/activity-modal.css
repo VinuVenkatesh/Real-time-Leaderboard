@@ -1,5 +1,21 @@
-.main {
+h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.activityForm form {
     display: flex;
-    justify-content: center;
-    height: 100%;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    align-items: center;
+}
+.activityForm mat-form-field {
+    width: 80%;
+}
+
+.activityForm button {
+    width: 50%;
+    font-size: large;
+    border: 1px solid black;
 }

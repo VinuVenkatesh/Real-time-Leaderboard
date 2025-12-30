@@ -8,7 +8,7 @@ import { Activity } from '../models/activity';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
-
+import {MatSelectModule} from '@angular/material/select';
 @Component({
   selector: 'app-activity-modal',
   providers: [
@@ -24,7 +24,8 @@ import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatSelectModule
   ],
   templateUrl: './activity-modal.html',
   styleUrl: './activity-modal.css',

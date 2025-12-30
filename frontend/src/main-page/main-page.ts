@@ -15,7 +15,7 @@ export class MainPage {
   activity(){
     this.dialog.open(ActivityModal,{
       width: '600px',
-      height: '400px'
+      height: '600px'
     });
   }
 }

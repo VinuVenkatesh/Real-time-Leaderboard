@@ -1,6 +1,6 @@
 <div class="main">
     <h2>Submit Your Activity</h2>
-    <div>
+    <div class ="activityForm">
         <form [formGroup]="activityForm" (ngSubmit)="onSubmit()">
         <mat-form-field appearance="fill">
             <mat-label>Activity Name</mat-label>
@@ -9,7 +9,11 @@
 
         <mat-form-field appearance="fill">
             <mat-label>Result</mat-label>
-            <textarea matInput formControlName="activityResult"></textarea>
+            <mat-select formControlName="activityResult">
+                <mat-option value="win">Win (+3 Pts)</mat-option>
+                <mat-option value="loss">Loss (-1 Pts)</mat-option>
+                <mat-option value="draw">Draw (0 Pts)</mat-option>
+            </mat-select>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
@@ -21,7 +25,6 @@
         </mat-form-field>
 
         <button mat-button color="primary" type="submit">Submit</button>
-    </form>
+        </form>
     </div>
-
 </div>
