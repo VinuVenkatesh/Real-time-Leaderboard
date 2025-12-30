@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { UserAuth } from '../services/userauth';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-login-modal',
@@ -21,10 +22,10 @@ import { UserAuth } from '../services/userauth';
 export class LoginModal {
   private dialogRef = inject(MatDialogRef<LoginModal>);
   private userAuth = inject(UserAuth);
-
+  private userModel: User = new User();
   loginForm = new FormGroup({
-    username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
+    username: new FormControl(this.userModel.username, Validators.required),
+    password: new FormControl(this.userModel.password, Validators.required),
   });
 
   onLogin() {

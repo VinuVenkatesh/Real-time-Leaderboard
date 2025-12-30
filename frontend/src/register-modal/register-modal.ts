@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { UserAuth } from '../services/userauth';
-
+import { User } from '../models/user';
 @Component({
   selector: 'app-register-modal',
   standalone: true,
@@ -22,11 +22,11 @@ import { UserAuth } from '../services/userauth';
 export class RegisterModal {
   private dialogRef = inject(MatDialogRef<RegisterModal>);
   private userAuthService = inject(UserAuth);
-
+  private userModel: User = new User();
   // Reactive form
   registerForm = new FormGroup({
-    username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required)
+    username: new FormControl(this.userModel.username, Validators.required),
+    password: new FormControl(this.userModel.password, Validators.required)
   });
 
   onRegister() {
