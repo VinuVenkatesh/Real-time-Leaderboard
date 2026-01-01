@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -30,15 +30,26 @@ import {MatSelectModule} from '@angular/material/select';
   templateUrl: './activity-modal.html',
   styleUrl: './activity-modal.css',
 })
-export class ActivityModal {
+export class ActivityModal implements OnInit {
   private dialogRef = inject(MatDialogRef<ActivityModal>);
   private activityModel: Activity = new Activity();
-  
+  maxDate?: Date;
   activityForm = new FormGroup({
     activityName: new FormControl(this.activityModel.activityName, Validators.required),
     activityResult: new FormControl(this.activityModel.activityResult, Validators.required),
     activityDate: new FormControl<moment.Moment | null>(null, Validators.required),
   });
+
+  ngOnInit() {
+    const now = new Date();
+    this.maxDate = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+      23, 59, 59, 999
+    );
+  }
+
   onSubmit() {
     if (this.activityForm.invalid) {
       this.activityForm.markAllAsTouched(); // show errors

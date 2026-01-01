@@ -1,0 +1,160 @@
+1. Chess
+2. Go
+3. Checkers (Draughts)
+4. Xiangqi (Chinese Chess)
+5. Shogi
+6. Soccer (Football)
+7. Futsal
+8. Basketball
+9. Volleyball
+10. Beach Volleyball
+11. Tennis
+12. Table Tennis
+13. Badminton
+14. Squash
+15. Racquetball
+16. Pickleball
+17. Baseball
+18. Softball
+19. Cricket
+20. Rugby Union
+21. Rugby League
+22. American Football
+23. Flag Football
+24. Ice Hockey
+25. Field Hockey
+26. Lacrosse
+27. Ultimate Frisbee
+28. Handball
+29. Water Polo
+30. Netball
+31. Bowling
+32. Golf (Match Play)
+33. Mini Golf (Competitive)
+34. Darts
+35. Billiards (Pool)
+36. Snooker
+37. Carom Billiards
+38. Foosball
+39. Air Hockey
+40. Arm Wrestling
+41. Boxing
+42. Kickboxing
+43. Muay Thai
+44. Mixed Martial Arts (MMA)
+45. Wrestling (Freestyle)
+46. Wrestling (Greco-Roman)
+47. Judo
+48. Taekwondo
+49. Karate (Sport)
+50. Brazilian Jiu-Jitsu
+51. Fencing (Foil)
+52. Fencing (Epee)
+53. Fencing (Sabre)
+54. Kendo
+55. Archery (Target)
+56. Shooting (Air Rifle)
+57. Shooting (Air Pistol)
+58. Curling
+59. Ice Skating (Competitive)
+60. Speed Skating
+61. Figure Skating (Match-based events)
+62. Skiing (Alpine Racing)
+63. Snowboarding (Racing)
+64. Sled Hockey
+65. Track Sprint Races
+66. Middle-Distance Track Races
+67. Long-Distance Track Races
+68. Relay Races
+69. Cross Country Running
+70. Marathon Racing
+71. Cycling (Road Racing)
+72. Cycling (Track)
+73. Cycling (BMX Racing)
+74. Mountain Bike Racing
+75. Rowing
+76. Canoe Sprint
+77. Kayak Sprint
+78. Sailing (Match Racing)
+79. Swimming Races
+80. Triathlon
+81. Duathlon
+82. Pentathlon
+83. Decathlon
+84. Weightlifting (Olympic)
+85. Powerlifting
+86. Strongman Competitions
+87. CrossFit Competitions
+88. Rock Climbing (Speed)
+89. Rock Climbing (Lead)
+90. Rock Climbing (Bouldering – Competitive)
+91. Esports – League of Legends
+92. Esports – Dota 2
+93. Esports – Counter-Strike
+94. Esports – Valorant
+95. Esports – Overwatch
+96. Esports – Rocket League
+97. Esports – FIFA / EA FC
+98. Esports – NBA 2K
+99. Esports – Street Fighter
+100. Esports – Tekken
+101. Esports – Super Smash Bros
+102. Esports – StarCraft II
+103. Esports – Age of Empires
+104. Esports – Chess Online (Rated)
+105. Motorsports – Formula Racing
+106. Motorsports – Rally Racing
+107. Motorsports – Karting
+108. Motorsports – Motorcycle Racing
+109. Horse Racing
+110. Greyhound Racing
+111. Poker (Tournament Format)
+112. Bridge (Duplicate)
+113. Backgammon
+114. Dominoes (Competitive)
+115. Mahjong (Competitive Rulesets)
+116. Draughts (International)
+117. Curling Mixed Doubles
+118. Beach Soccer
+119. Sepak Takraw
+120. Kabaddi
+121. Padel
+122. Soft Tennis
+123. Hurling
+124. Gaelic Football
+125. Australian Rules Football
+126. Baseball Five
+127. Handball (Beach)
+128. Dodgeball (League Rules)
+129. Tug of War (Sport)
+130. Orienteering (Competitive)
+131. Speedcubing (Head-to-Head)
+132. Debate (Tournament Format)
+133. Quiz Bowl
+134. Academic Decathlon Events
+135. Robotics Competitions (Match-Based)
+136. Robotics Combat (e.g., BattleBots)
+137. Drone Racing
+138. Sim Racing
+139. Sim Flight Dogfighting
+140. Esports – Sim Sports Leagues
+141. Esports – Fighting Game Tournaments
+142. Esports – RTS Tournaments
+143. Esports – MOBA Tournaments
+144. Esports – Tactical Shooter Tournaments
+145. Curling Triples
+146. Bocce
+147. Petanque
+148. Lawn Bowls
+149. Cornhole (Tournament)
+150. Shuffleboard (Competitive)
+151. Disc Golf
+152. Target Disc Throwing
+153. Korfball
+154. Floorball
+155. Speed Pool
+156. Table Football (ITSF Rules)
+157. Competitive Arm Wrestling (League)
+158. Professional Tag
+159. Chess Boxing
+160. Hybrid Esports-League Events
