@@ -15,11 +15,13 @@ const PORT = ":1234"
 func main() {
 	godotenv.Load(".env") // Load environment variables from .env file with relative path
 	db.InitDB()
+	db.InitSportsActivities()
 	mux := http.NewServeMux()
 	handler := middleware.CORS(middleware.JWTAuth(mux))
 	routes.UserAuthRoutes(mux)
 	if err := http.ListenAndServe(PORT, handler); err != nil {
 		log.Fatal("Listen and Serve: ", err)
 	}
+
 	defer db.CloseDB()
 }
