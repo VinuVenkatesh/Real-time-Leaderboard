@@ -9,6 +9,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
 import {MatSelectModule} from '@angular/material/select';
+import { Activities } from '../services/activities';
 @Component({
   selector: 'app-activity-modal',
   providers: [
@@ -33,6 +34,8 @@ import {MatSelectModule} from '@angular/material/select';
 export class ActivityModal implements OnInit {
   private dialogRef = inject(MatDialogRef<ActivityModal>);
   private activityModel: Activity = new Activity();
+  private activities = []; 
+  private activitiesService = inject(Activities);
   maxDate?: Date;
   activityForm = new FormGroup({
     activityName: new FormControl(this.activityModel.activityName, Validators.required),
@@ -48,6 +51,9 @@ export class ActivityModal implements OnInit {
       now.getDate(),
       23, 59, 59, 999
     );
+    this.activitiesService.getAllActivities().subscribe(data =>{
+      console.log(data);
+    })
   }
 
   onSubmit() {

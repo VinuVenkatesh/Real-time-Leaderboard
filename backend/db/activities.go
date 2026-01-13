@@ -9,7 +9,7 @@ import (
 	_ "github.com/lib/pq"
 )
 
-func InitSportsActivities() {
+func InitActivities() {
 
 	// Create table if not exists
 	// Open file
@@ -52,7 +52,7 @@ func InitSportsActivities() {
 	}
 }
 
-func GetSportsActivities() ([]string, error) {
+func GetActivities() ([]string, error) {
 	query := `SELECT activity_name FROM sports_activities ORDER BY activity_name`
 	rows, err := DB.Query(query)
 	if err != nil {

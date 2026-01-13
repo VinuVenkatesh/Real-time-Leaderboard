@@ -5,5 +5,5 @@ import (
 )
 
 func GetAllSportsActivities() ([]string, error) {
-	return db.GetSportsActivities()
+	return db.GetActivities()
 }
