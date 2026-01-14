@@ -4,7 +4,16 @@
         <form [formGroup]="activityForm" (ngSubmit)="onSubmit()">
         <mat-form-field appearance="fill">
             <mat-label>Activity Name</mat-label>
-            <input matInput formControlName="activityName">
+            <mat-select formControlName="activityName">
+                @if(activities.length === 0) {
+                    <mat-option disabled>Loading...</mat-option>
+                }
+                @for (activity of activities; track activity) {
+                    <mat-option [value]="activity">
+                        {{ activity }}
+                    </mat-option>
+                }
+            </mat-select>
         </mat-form-field>
 
         <mat-form-field appearance="fill">

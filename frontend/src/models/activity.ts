@@ -3,3 +3,7 @@ export class Activity {
     activityResult: string = ''
     activityDate: string = '';
 }
+
+export interface ActivityResponse {
+    activities: string[];
+}

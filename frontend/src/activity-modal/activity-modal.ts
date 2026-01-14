@@ -10,6 +10,7 @@ import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapte
 import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
 import {MatSelectModule} from '@angular/material/select';
 import { Activities } from '../services/activities';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-activity-modal',
   providers: [
@@ -26,7 +27,8 @@ import { Activities } from '../services/activities';
     MatInputModule,
     MatButtonModule,
     MatDatepickerModule,
-    MatSelectModule
+    MatSelectModule,
+    CommonModule
   ],
   templateUrl: './activity-modal.html',
   styleUrl: './activity-modal.css',
@@ -34,9 +36,10 @@ import { Activities } from '../services/activities';
 export class ActivityModal implements OnInit {
   private dialogRef = inject(MatDialogRef<ActivityModal>);
   private activityModel: Activity = new Activity();
-  private activities = []; 
+  activities: string[] = []; 
   private activitiesService = inject(Activities);
   maxDate?: Date;
+
   activityForm = new FormGroup({
     activityName: new FormControl(this.activityModel.activityName, Validators.required),
     activityResult: new FormControl(this.activityModel.activityResult, Validators.required),
@@ -51,9 +54,15 @@ export class ActivityModal implements OnInit {
       now.getDate(),
       23, 59, 59, 999
     );
-    this.activitiesService.getAllActivities().subscribe(data =>{
-      console.log(data);
-    })
+
+    this.activitiesService.getAllActivities().subscribe(res => {
+      this.activities = res.activities;
+
+      // Patch the activityName only if it is empty
+      this.activityForm.patchValue({
+        activityName: this.activityModel.activityName || (this.activities.length > 0 ? this.activities[0] : '')
+      });
+    });
   }
 
   onSubmit() {
@@ -72,5 +81,8 @@ export class ActivityModal implements OnInit {
 
     console.log(activity);
     this.dialogRef.close(); // close dialog with form data
+  }
+  ngOnDestroy() {
+    this.dialogRef.close();
   }
 }
